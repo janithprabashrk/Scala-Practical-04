@@ -1,15 +1,17 @@
-object InventoryManagement {
+object Inventory_Management {
 
-  var itemNames: Array[String] = Array("Apple", "Banana", "Orange")
-  var itemQuantities: Array[Int] = Array(10, 20, 15)
+  var itemNames: Array[String] = Array("Apple", "Banana", "Orange", "Pineapple")
+  var itemQuantities: Array[Int] = Array(10, 20, 15, 20)
 
+  //Function for display inventory
   def displayInventory(): Unit = {
-    println("Inventory:")
+    println("------- Inventory ------")
     for (i <- itemNames.indices) {
-      println(s"${itemNames(i)}: ${itemQuantities(i)}")
+      println(itemNames(i) + " : " + itemQuantities(i))
     }
   }
 
+  //Function for restock
   def restockItem(itemName: String, quantity: Int): Unit = {
     val index = itemNames.indexOf(itemName)
     if (index != -1) {
