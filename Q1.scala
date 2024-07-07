@@ -16,9 +16,9 @@ object Inventory_Management {
     val index = itemNames.indexOf(itemName)
     if (index != -1) {
       itemQuantities(index) += quantity
-      println(s"Restocked $quantity of $itemName. New quantity: ${itemQuantities(index)}")
+      println("Restocked " + quantity + " of " + itemName + " ==>> New quantity: "+ itemQuantities(index))
     } else {
-      println(s"Item $itemName does not exist in the inventory.")
+      println("The item does not exist in the inventory...!")
     }
   }
 
@@ -27,12 +27,12 @@ object Inventory_Management {
     if (index != -1) {
       if (itemQuantities(index) >= quantity) {
         itemQuantities(index) -= quantity
-        println(s"Sold $quantity of $itemName. Remaining quantity: ${itemQuantities(index)}")
+        println("Sold " + quantity + " of "  + itemName + " ==>> Remaining quantity : " + itemQuantities(index))
       } else {
-        println(s"Not enough $itemName in stock to sell $quantity. Current quantity: ${itemQuantities(index)}")
+        println("Not enough " + itemName + " Stocks Available.....!!")
       }
     } else {
-      println(s"Item $itemName does not exist in the inventory.")
+      println("The item does not exist in the inventory...! ")
     }
   }
 
