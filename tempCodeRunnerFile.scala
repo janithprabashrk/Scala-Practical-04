@@ -1,26 +1,22 @@
-object PatternMatchingExample {
+object StringFormatter {
 
-  def main(args: Array[String]): Unit = {
-    if (args.length != 1) {
-      println("Please provide exactly one integer as input.")
-      System.exit(1)
+    def toUpper(input: String): String = {
+        input.toUpperCase
     }
 
-    val input = try {
-      args(0).toInt
-    } catch {
-      case e: NumberFormatException =>
-        println("Please provide a valid integer.")
-        System.exit(1)
-        0 // Default value to satisfy compiler, will never reach here
+    def toLower(input: String): String = {
+        input.toLowerCase
     }
 
-    val result = input match {
-      case x if x <= 0 => "Negative/Zero is input"
-      case x if x % 2 == 0 => "Even number is given"
-      case _ => "Odd number is given"
+    def formatNames(name: String)(formatFunction: String => String): String = {
+        formatFunction(name)
     }
 
-    println(result)
-  }
+    def main(args: Array[String]): Unit = {
+        println(formatNames("Benny")(toUpper))
+        println(formatNames("Niroshan")(name => name.substring(0, 2).toUpperCase + name.substring(2).toLowerCase))
+        println(formatNames("Saman")(toLower))
+        println(formatNames("Kumara")(name => name.substring(0, 1).toUpperCase + name.substring(1, 5).toLowerCase + name.substring(5).toUpperCase))
+    }
+
 }
