@@ -42,5 +42,10 @@ object Inventory_Management {
     sellItem("Banana", 10)
     sellItem("Orange", 20)
     displayInventory()
+    restockItem("Pineapple", 5)
+    displayInventory()
+    restockItem("Mango", 3)
   }
+
+
 }
